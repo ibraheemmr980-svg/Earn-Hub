@@ -1,5 +1,295 @@
 <!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EarnHub - Rewards Platform</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #172033;
+      color: white;
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: 30px auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #64748b;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .duration {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .select-btn {
+      width: 100%;
+      border: none;
+      padding: 13px;
+      border-radius: 10px;
+      background: #172033;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .select-btn:hover {
+      background: #263653;
+    }
+
+    .note {
+      margin-top: 30px;
+      padding: 18px;
+      background: #fff;
+      border-radius: 12px;
+      color: #64748b;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      border: none;
+      padding: 12px 25px;
+      border-radius: 9px;
+      background: #172033;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>EarnHub</h1>
+  <p>Rewards & Activity Platform</p>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <h2>Choose Your Package</h2>
+    <p>Select a package to view its details and eligibility.</p>
+  </div>
+
+  <div class="packages">
+
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">Rs. 600</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Starter', 600)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Bronze</h3>
+      <div class="price">Rs. 1,500</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Bronze', 1500)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Silver</h3>
+      <div class="price">Rs. 3,000</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Silver', 3000)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Gold</h3>
+      <div class="price">Rs. 7,500</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Gold', 7500)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Platinum</h3>
+      <div class="price">Rs. 15,000</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Platinum', 15000)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Diamond</h3>
+      <div class="price">Rs. 30,000</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Diamond', 30000)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <div class="price">Rs. 75,000</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('Premium', 75000)">
+        Select Package
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>VIP</h3>
+      <div class="price">Rs. 150,000</div>
+      <div class="duration">90 Days</div>
+      <button class="select-btn" onclick="selectPackage('VIP', 150000)">
+        Select Package
+      </button>
+    </div>
+
+  </div>
+
+  <div class="note">
+    Package access and rewards should be based on genuine platform activities
+    and clearly disclosed terms.
+  </div>
+
+</div>
+
+<div class="modal" id="packageModal">
+  <div class="modal-box">
+    <h2 id="modalTitle">Package Selected</h2>
+    <p id="modalText"></p>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  function selectPackage(name, price) {
+    document.getElementById("modalTitle").innerText =
+      name + " Package Selected";
+
+    document.getElementById("modalText").innerText =
+      "You selected the " + name +
+      " package (Rs. " + price.toLocaleString() +
+      "). Package duration is 90 days. Continue only after reviewing the platform's terms and eligibility.";
+
+    document.getElementById("packageModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("packageModal").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("packageModal");
+
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>
+
+</body>
+</html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
